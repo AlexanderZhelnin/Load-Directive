@@ -1,0 +1,11 @@
+<button (click)="isShow=!isShow">{{(isShow? 'Скрыть': 'Показать')}}</button>
+
+<book-paper-back *ngIf="isShow" ad-loaded (loaded)="onLoaded($event)" #ngIfShown title="элемент показывается когда isShow==true">
+</book-paper-back>
+
+<span [ngSwitch]="isShow">
+  <book-paper-back *ngSwitchCase="true" title="элемент показывается когда switch==true" #switchTrue>
+  </book-paper-back>
+  <book-hard-cover *ngSwitchCase="false" title="элемент показывается когда switch==false" #switchFalse>
+  </book-hard-cover>
+</span>
